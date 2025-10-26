@@ -2,56 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Game Statistics Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #1e5a7d 0%, #2c5e77 100%);
+            color: white;
+        }
+
+        thead tr th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        tbody tr:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        tbody tr td {
+            padding: 18px 15px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        tbody tr td:first-child {
+            font-weight: 600;
+            color: #1e5a7d;
+        }
+
+        tbody tr td:not(:first-child) {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Highlight winning players */
+        tbody tr:nth-child(2) td:last-child,
+        tbody tr:nth-child(4) td:last-child {
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        /* Add colored badges for stats */
+        .stat-high {
+            background-color: #ff9800;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .stat-medium {
+            background-color: #2196f3;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .stat-low {
+            background-color: #f44336;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            thead tr th,
+            tbody tr td {
+                padding: 12px 8px;
+                font-size: 12px;
+            }
+
+            .table-container {
+                margin: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- add table here -->
-	<table>
-		<tr>
-			<th>NAME</th>
-			<th>KILLS</th>
-			<th>SAVED</th>
-			<th>DEATHS</th>
-			<th>REVIVES</th>
-			<th>WIN</th>
-		</tr>
-		<tr>
-			<td>Hackerman</td>
-			<td>10</td>
-			<td>0</td>
-			<td>1</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Cool Doggo</td>
-			<td>13</td>
-			<td>4</td>
-			<td>8</td>
-			<td>7</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>Andrews</td>
-			<td>19</td>
-			<td>2</td>
-			<td>10</td>
-			<td>11</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Strawberry</td>
-			<td>2</td>
-			<td>9</td>
-			<td>3</td>
-			<td>5</td>
-			<td>1</td>
-		</tr>
-	</table>
-
-        
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>KILLS</th>
+                    <th>SAVED</th>
+                    <th>DEATHS</th>
+                    <th>REVIVES</th>
+                    <th>WIN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hackerman</td>
+                    <td>10</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Cool Doggo</td>
+                    <td>13</td>
+                    <td>4</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Andrews</td>
+                    <td>19</td>
+                    <td>2</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Strawberry</td>
+                    <td>2</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
